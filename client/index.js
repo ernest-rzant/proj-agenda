@@ -16,4 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
   /* Inicializando los sideNavs */
   const dropdowns = document.querySelectorAll('.dropdown-trigger');
   M.Dropdown.init(dropdowns);
+
+  /* Inicialiozando Pickers */
+  const elems = document.querySelectorAll('.datepicker');
+  M.Datepicker.init(elems);
 });

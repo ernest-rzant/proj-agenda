@@ -2,45 +2,64 @@
   <div class="col s12 m10 offset-m1 l8 offset-l2">
     <div class="card">
       <div class="card-image">
-        <img src="/images/blue-print.jpg" alt="blue print image" />
+        <img src="/images/image.jpg" alt="blue print image" />
         <span class="card-title">
-          Registrar Proyecto
+          Registrar Actividad
         </span>
       </div>
       <form autocomplete="off" action="/projects/add" method="POST">
         <div class="card-content">
           <div class="input-field">
-            <label for="project-name">
+            <label for="activity-fecha">
+              Fecha
+            </label>
+            <input 
+            placeholder="Ingrese fecha de actividad"
+            type="text" 
+            id="activity-fecha"
+            name="fecha"
+            value="{{project.fecha}}"
+            class="datepicker"
+            >
+            <span class="helper-text" 
+            data-error="Debe ingresar una fecha"
+            data-success="Correcto"></span>
+            {{#if errorModel.fechaError}}
+            <span style="color: red;">Error: {{errorModel.fechaError}}</span>
+            {{/if}}
+          </div>
+          <div class="input-field">
+            <label for="activity-name">
               Nombre
             </label>
             <input
-              placeholder="Ingrese el nombre del proyecto"
+              placeholder="Ingrese el nombre de la actividad"
               type="text"
-              id="project-name"
+              id="activity-name"
               name="name"
               class="validate"
               value="{{project.name}}"
               required
             />
             <span class="helper-text" 
-            data-error="Debe ingresar nombre al proyecto"
+            data-error="Debe ingresar el nombre de la actividad"
             data-success="Correcto"></span>
             {{#if errorModel.nameError}}
             <span style="color: red;">Error: {{errorModel.nameError}}</span>
             {{/if}}
           </div>
           <div class="input-field">
-            <label for="project-description">
+            <label for="activity-description">
               Descripción
             </label>
             <textarea
               name="description"
-              id="project-description"
+              id="activity-description"
               class="materialize-textarea"
               required
             >{{project.description}}</textarea>
             <span class="helper-text" 
-            data-error="Debe ingresar descripcion al proyecto"
+            data-error="Debe ingresar descripcion de la actividad"
             data-success="Correcto"></span>
             {{#if errorModel.descriptionError}}
             <span style="color: red;">Error: {{errorModel.descriptionError}}</span>
@@ -54,7 +73,7 @@
             <i class="material-icons left">
               save
             </i>
-            Registrar
+            Registrar Actividad
           </button>
         </div>
       </form>

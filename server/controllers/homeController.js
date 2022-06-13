@@ -31,7 +31,7 @@ const about = (req, res) => {
     email: 'ernestorodriguez643@gmail.com',
     url: 'https://github.com/ernest-rzant',
     description:
-      'Aplicacion que te permite registrar ideas de proyectos. PwpcII-2022A',
+      'Una aplicacion que te permitira registrar las actividades de tu dia a dia. PwpcII-2022A',
     version: '0.0.alpha',
   });
 };

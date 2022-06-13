@@ -8,6 +8,10 @@ const { Schema } = mongoose;
 // 3 Creamos el Schema
 // Schema: la descripcion de los datos que va a contener un objeto JSON
 const ProjectSchema = new Schema({
+  fecha: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true,
@@ -29,4 +33,4 @@ const ProjectSchema = new Schema({
 
 // Generar el modelo a partir de un Schema
 // Compilar el modelo (crear una instancia a partir del modelo)
-export default mongoose.model('project', ProjectSchema);
+export default mongoose.model('activity', ProjectSchema);
