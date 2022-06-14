@@ -9,7 +9,7 @@ const { Schema } = mongoose;
 // Schema: la descripcion de los datos que va a contener un objeto JSON
 const ProjectSchema = new Schema({
   fecha: {
-    type: String,
+    type: Date,
     required: true,
   },
   name: {

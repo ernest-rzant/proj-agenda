@@ -10,10 +10,11 @@ const index = async (req, res) => {
   // que me de todos lo proyectos que tiene
   // db.projects.find()
   try {
-    log.info('Listando proyectos ... ⌛');
-    const projectsDocs = await ProjectModel.find();
-    log.info('Proyectos listados con exito ... 🎉');
-    res.json(projectsDocs);
+    log.info('Listando actividades ... ⌛');
+    const projectsDocs = await ProjectModel.find().lean();
+    log.info('Actividades listadas con exito ... 🎉');
+    // res.json(projectsDocs);
+    res.render('projects/allActivities', { projectsDocs });
   } catch (error) {
     log.error(`💥 Error al listar proyectos: ${error.message}`);
     res.status(500).json(error);
