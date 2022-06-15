@@ -21,7 +21,26 @@ const index = async (req, res) => {
   }
 };
 
-// Agrega ideas de proyectos
+const search = async (req, res) => {
+  // 1 Pedirle a la base de datos
+  // que me de todos lo proyectos que tiene
+  // db.projects.find()
+  const { validData } = req;
+
+  try {
+    log.info('Listando actividades ... ⌛');
+    const activitiesDocs = await ProjectModel.find(validData).lean();
+    // console.log(validData);
+    log.info('Actividades listadas con exito ... 🎉');
+    // res.json(projectsDocs);
+    res.render('projects/activity', { activitiesDocs });
+  } catch (error) {
+    log.error(`💥 Error al listar proyectos: ${error.message}`);
+    res.status(500).json(error);
+  }
+};
+
+// Agrega ideas de proyectosar
 // GET /projects/add
 const add = (req, res) => {
   res.render('projects/addProjectView', {});
@@ -80,6 +99,7 @@ const addPost = async (req, res) => {
 // Exportando el controlador
 export default {
   index,
+  search,
   add,
   addPost,
 };

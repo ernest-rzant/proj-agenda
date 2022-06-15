@@ -19,5 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Inicialiozando Pickers */
   const elems = document.querySelectorAll('.datepicker');
+  // const options = {
+  //   format: 'dd/mm/yyyy',
+  // };
   M.Datepicker.init(elems);
 });

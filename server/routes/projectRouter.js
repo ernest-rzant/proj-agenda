@@ -6,6 +6,7 @@ import Validate from '../validators/validateFactory';
 
 // Importamos el esquema de validacion
 import projectValidator from '../validators/projectValidator';
+import activityValidator from '../validators/activityValidator';
 
 // importar el controlador de proyectos
 import projectController from '../controllers/projectController';
@@ -32,6 +33,15 @@ router.post(
     getObject: projectValidator.getProject,
   }),
   projectController.addPost
+);
+
+router.post(
+  '/search',
+  Validate({
+    shape: activityValidator.activitySchema,
+    getObject: activityValidator.getDate,
+  }),
+  projectController.search
 );
 
 // Exportando el enrutador Projects
